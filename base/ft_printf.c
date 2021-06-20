@@ -37,6 +37,8 @@ static int	write_manager(t_specs *specs, va_list va)
 	int				counter;
 
 	counter = 0;
+	if (specs->specifier & PERCENT_SPEC)
+		counter = percent_processor();
 	if (specs->specifier & S_SPEC)
 		counter = string_processor(specs, va);
 	if ((specs->specifier & I_SPEC) || (specs->specifier & D_SPEC))
@@ -54,18 +56,10 @@ static int	write_manager(t_specs *specs, va_list va)
 static unsigned	int	process_fstr(const char **fstrptr, va_list ap)
 {
 	int			counter;
-	const char	*fstr;
 	t_specs		specs;
 
 	specs = init_specs();
 	counter = 0;
-	fstr = *fstrptr;
-	if (*(++fstr) == '%')
-	{
-		ft_putchar_fd('%', 1);
-		*fstrptr = ++fstr;
-		return (1);
-	}
 	if ((parse_specs(&specs, fstrptr, ap)) == -1)
 		counter = parse_fail_processor(fstrptr);
 	else

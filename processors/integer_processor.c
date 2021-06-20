@@ -47,7 +47,7 @@ static int	print_body(char *str_val, t_specs *specs, int have_suffix)
 	return (counter);
 }
 
-int	write_int(char *str_val, t_specs *specs)
+static int	write_int(char *str_val, t_specs *specs)
 {
 	int	have_suffix;
 	int	counter;

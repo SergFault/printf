@@ -11,7 +11,7 @@ SRCS = base/ft_printf.c \
 		processors/string_processor.c processors/integer_processor.c \
 		processors/unsigned_processor.c processors/char_processor.c \
 		processors/hex_processor.c processors/parse_fail_processor.c \
-		processors/struct_processor.c
+		processors/struct_processor.c processors/percent_processor.c
 
 INCL = includes/ft_printf.h
 
@@ -22,7 +22,7 @@ CC = gcc
 FLAGS = -std=c99 -Wextra -Wall -Werror
 
 %.o:%.c $(INCL)
-	$(CC) -c $< $(FLAGS) -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	ar crs $(NAME) $?
@@ -38,4 +38,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all test clean fclean re
-

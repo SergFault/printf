@@ -2,7 +2,7 @@
 
 int	parse_specifier(t_specs *specs, const char **fstrptr)
 {
-	if (!(ft_strchr("iucspxdX", **fstrptr)))
+	if (!(ft_strchr("iucspxdX%", **fstrptr)))
 		return (-1);
 	if (**fstrptr == 'i')
 		specs->specifier = specs->specifier | I_SPEC;
@@ -20,5 +20,8 @@ int	parse_specifier(t_specs *specs, const char **fstrptr)
 		specs->specifier = specs->specifier | UPX_SPEC;
 	else if (**fstrptr == 'd')
 		specs->specifier = specs->specifier | D_SPEC;
+	else if (**fstrptr == '%')
+		specs->specifier = specs->specifier | PERCENT_SPEC;
+	(*fstrptr)++;
 	return (1);
 }

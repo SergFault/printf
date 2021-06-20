@@ -5,15 +5,16 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# define NULL_SPEC	0b00000000
-# define I_SPEC		0b00000001
-# define U_SPEC		0b00000010
-# define C_SPEC		0b00000100
-# define S_SPEC		0b00001000
-# define P_SPEC		0b00010000
-# define X_SPEC		0b00100000
-# define UPX_SPEC	0b01000000
-# define D_SPEC		0b10000000
+# define NULL_SPEC		0b000000000
+# define I_SPEC			0b000000001
+# define U_SPEC			0b000000010
+# define C_SPEC			0b000000100
+# define S_SPEC			0b000001000
+# define P_SPEC			0b000010000
+# define X_SPEC			0b000100000
+# define UPX_SPEC		0b001000000
+# define D_SPEC			0b010000000
+# define PERCENT_SPEC	0b100000000
 # define UPPER		1
 # define LOWER		0
 
@@ -54,4 +55,5 @@ int		char_processor(t_specs *specs, va_list va);
 int		hex_processor(t_specs *specs, va_list va);
 int		parse_fail_processor(const char **str_ptr);
 void	struct_processor(t_specs *specs);
+int		percent_processor(void);
 #endif
