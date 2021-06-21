@@ -33,6 +33,8 @@ char	*ft_ui_to_hex(unsigned long ui, int up_lo_pref_flag, int prefix)
 	 if (prefix)
 		rank += 2;
 	hex_str = (char *)malloc(sizeof(char) * (rank + 1));
+	if (!hex_str)
+		return (NULL);
 	ft_memset(hex_str, 0, (rank + 1));
 	if (!(hex_str))
 		return (NULL);

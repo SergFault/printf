@@ -73,6 +73,8 @@ int	integer_processor(t_specs *specs, va_list va)
 	if (value == 0 && specs->flag_dot && specs->precision == 0)
 	{
 		str_val = (char *)malloc(sizeof(char) * 1);
+		if (!str_val)
+			return (0);
 		*str_val = '\0';
 	}
 	else

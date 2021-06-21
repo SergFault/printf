@@ -23,7 +23,7 @@ char	*ft_utoa(unsigned int num)
 	rank = ft_rank(num);
 	ret = (char *)malloc(sizeof(char) * (rank + 1));
 	if (!(ret))
-		return (0);
+		return (NULL);
 	ret[rank] = '\0';
 	while (num > 9)
 	{
