@@ -55,5 +55,5 @@ int		char_processor(t_specs *specs, va_list va);
 int		hex_processor(t_specs *specs, va_list va);
 int		parse_fail_processor(const char **str_ptr);
 void	struct_processor(t_specs *specs);
-int		percent_processor(void);
+int		percent_processor(t_specs *specs);
 #endif

@@ -38,7 +38,7 @@ static int	write_manager(t_specs *specs, va_list va)
 
 	counter = 0;
 	if (specs->specifier & PERCENT_SPEC)
-		counter = percent_processor();
+		counter = percent_processor(specs);
 	if (specs->specifier & S_SPEC)
 		counter = string_processor(specs, va);
 	if ((specs->specifier & I_SPEC) || (specs->specifier & D_SPEC))

@@ -1,1 +1,4 @@
 *.o
+pft/
+.DS_Store
+*.a

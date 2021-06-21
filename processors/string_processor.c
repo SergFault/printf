@@ -20,14 +20,11 @@ static int	min(int n1, int n2)
 	return (n2);
 }
 
-static void	null_processor(char **str, t_specs *specs)
+static void	null_processor(char **str)
 {
 	if (!*str)
 	{
-		if (specs->precision >= 6 || !specs->flag_dot)
-			*str = "(null)";
-		else
-			*str = "";
+		*str = "(null)";
 	}
 }
 
@@ -49,7 +46,7 @@ int	string_processor(t_specs *specs, va_list va)
 	str = va_arg(va, char *);
 	if (specs->flag_dot && specs->precision < 0)
 		specs->flag_dot = 0;
-	null_processor(&str, specs);
+	null_processor(&str);
 	process_struct(specs);
 	if (specs->flag_dot && specs->precision >= 0)
 		eff_strlen = min(ft_strlen(str), specs->precision);

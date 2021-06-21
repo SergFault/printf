@@ -86,7 +86,7 @@ int	hex_processor(t_specs *specs, va_list va)
 	else
 		ui = va_arg(va, unsigned int);
 	if ((specs->specifier & P_SPEC) && (ui == 0))
-		str = ft_strdup("(nil)");
+		str = ft_strdup("0x0");
 	else if ((ui == 0 && specs->flag_dot) && specs->precision == 0)
 		str = ft_strdup("");
 	else
